@@ -1,0 +1,44 @@
+body{
+    background-image: url("images/11.jpg");
+} 
+h1{
+    color:white;
+    text-align: center;
+}
+h2{
+    color: white;
+    text-align: center;
+}
+h6{
+    color: white;
+    text-align: white;
+}
+p{
+    color:white;
+    opacity: 1;
+}
+div{
+    text-align: center;
+
+}
+.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+.main{
+    width:900px;
+    height:2000px;
+    background: rgba(0, 0, 0, 0.9); 
+    margin: auto; 
+    border:10px black;
+    padding: 50px 50px
+}
+.child{
+    width:800px;
+    height:200px;
+    background-color:white; 
+    margin: auto; 
+    border:10px black;
+    padding: 25px 25px
+
+}

@@ -1,0 +1,30 @@
+   
+body{
+    margin: 0px;
+    background-color: #000000;
+    background-image: url("https://www.hplovecraft.com/Wallpaper.jpg");
+    background-attachment: fixed;
+}
+
+.contents{
+    width: 774px;
+    background-color: #FFFFFF;
+    border-left: 1px solid #666;
+    border-right: 1px solid #666;
+    padding-top: 45px;
+    padding-bottom: 1060px;
+}
+table{
+    background-color:white; 
+    border:0 ;
+    padding-left:5 ;
+    padding-inline:0 ;
+    width:590;
+}
+.secondary{
+    background-color: darkslategrey;
+    border:5;
+
+}
+         
+

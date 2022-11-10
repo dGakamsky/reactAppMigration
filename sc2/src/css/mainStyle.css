@@ -1,0 +1,32 @@
+body {
+    background-color: black;
+}
+div{
+    background-color: white;
+    text-align: center;
+}
+h1{
+    color: lightblue;
+    text-align: center;
+
+}
+p{
+    font-family:'Times New Roman', Times, serif;
+    font-size: 48px;
+        background-color: aquamarine;
+}
+.test1{
+    text-align: center;
+    font-family: cursive;
+}
+.test2{
+    text-align: right;
+}
+p.center{
+    text-align: center;
+    color: grey;
+}
+
+p.whitebackground{
+    background-color:  antiquewhite;
+}
