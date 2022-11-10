@@ -32,30 +32,50 @@ class HomePage extends React.Component{
 
     render() {
       const{dataIsLoaded, data} = this.state;
-      const{test} = this.returnSomeText;
-      alert({test})
       return (
         <div class="center, main">
           <div class="center, child">
-            Please wait while this is loading
-            
+          <h1> This is a title here</h1>
+            This is the first div
           </div>
+          <div class="center, child">
+          <h1> This is a title here</h1>
+            This is the second div
+          </div>
+          <div class="center, child">
+          <h1> This is a title here</h1>
+            This is the third div
+          </div>
+          <div class="center, child">
+          <h1> This is a title here</h1>
+            This is the fourth div
+          </div>
+          <div class="center, child">
+          <h1> This is a title here</h1>
+            This is the fifth div
+            <table class="center">
+              <tr>
+                <th>
+                  Terran
+                </th>
+                <th>
+                  Protoss
+                </th>
+                <th>
+                  Zerg
+                </th>
+              </tr>
+            </table>
+          </div>
+
+
+
+
+
         </div>);
       }
 
-    returnSomeText(){
-      return (
-        <div>
-        <div>
-            Test div 1
-        </div>
-        <div>
-            test div 2
-        </div>
-        </div>
 
-      );
-    }
   
   
   }
