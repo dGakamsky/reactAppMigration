@@ -25,6 +25,7 @@ class HomePage extends React.Component{
     let isPlaying = this.state.isPlaying;
     if (isPlaying){
       this.state.audio.pause();
+      this.setState({isPlaying: !isPlaying});
     } else {
       this.state.audio.play();
       this.setState({isPlaying: !isPlaying});
@@ -45,8 +46,8 @@ class HomePage extends React.Component{
     paragraphOne(){
       return (
         <div class="center, child, p1">
-          <h1> This is a title here</h1>
-          This is the first div
+          <h1><b><i>TSI needs to play Starcraft 2</i></b> </h1>
+          <h2>Seriously, theres a valorant and overwatch community but not this?</h2>
           <img src={headerImg} alt="header image" />           
         </div>
       );
@@ -55,10 +56,10 @@ class HomePage extends React.Component{
     paragraphTwo(){
         return(
           <div class="center, child">
-          <h1> This is a title here</h1>
+          <h1> Look at how cool it is!</h1>
           <iframe width="560" height="315" src="https://www.youtube.com/embed/8L4kNzTNnqk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <br></br>
-            This is the second div
+            Its even free to play, seriously, whats stopping you?
           </div>
         );
     }
@@ -66,8 +67,8 @@ class HomePage extends React.Component{
     paragraphThree(){
       return(
         <div class="center, child">
-        <h1> This is a title here</h1>
-          This is the third div<br></br>
+        <h1></h1>
+          The music in game is great too!<br></br>
           <button onClick={this.playPause}>play song</button>
         </div>
       );
@@ -77,8 +78,10 @@ class HomePage extends React.Component{
     paragraphFour(){
       return(
         <div class="center, child">
-        <h1> This is a title here</h1>
-          This is the fourth div
+        <h1> Starcraft 2 is a historic achievement.</h1>
+            Starcraft 2 is a true gaming classic, successor to the game which arguably launched Esports and to this day a true landmark of competetive multiplayer games <br></br>
+            While the game has a high skill ceiling which allows for significant mastery and all manner of creative plays and approaches to the game the truth is that <br></br>
+            the game is approachable to players of all skill levels, with a wide variety of Arcade modes, Campaign, Coop and skill based matchmaking. 
         </div>
       );
 
@@ -197,13 +200,17 @@ function Api(race){
 
 function Api(){
 const[ReturnData, StoreData] = useState("");
+
 useEffect(()=>{
   fetch("https://api.kanye.rest")
   .then(res => res.json())
   .then(quote => {
       StoreData(quote.quote)
   })
+  .catch((err) => console.error(err))
 },[])
+
+
 
 return(
   <div>
