@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './css/homeStyle.css';
+import headerImg from './images/SC2.jpg';
 
 class HomePage extends React.Component{
 
@@ -18,60 +19,95 @@ class HomePage extends React.Component{
   getProtossGuide(){
     fetch("https://starcraft-ii.p.rapidapi.com/learning/protoss/page/1/", options)
       .then((res) => res.json())
-      .then(alert("test1"))
       .then(response => console.log(response))
-      .then((json)=> {
-        alert(json)
+      .then((response)=> {
         this.setState({
-          data: json,
+          data: response,
           dataIsLoaded: true
           }, []);
-          /*return(`<a href= "${response.value[0].webUrl}"> Heres a helpful guide </a>`)*/
+          // return(`<a href= "${response.value[0].webUrl}"> Heres a helpful guide </a>`)
         })
       }
 
-    render() {
-      const{dataIsLoaded, data} = this.state;
+    paragraphOne(){
       return (
-        <div class="center, main">
-          <div class="center, child">
+        <div class="center, child, p1">
           <h1> This is a title here</h1>
-            This is the first div
-          </div>
+          This is the first div
+          <img src={headerImg} alt="header image" />           
+        </div>
+      );
+    }
+
+    paragraphTwo(){
+        return(
           <div class="center, child">
           <h1> This is a title here</h1>
             This is the second div
           </div>
-          <div class="center, child">
-          <h1> This is a title here</h1>
-            This is the third div
-          </div>
-          <div class="center, child">
-          <h1> This is a title here</h1>
-            This is the fourth div
-          </div>
-          <div class="center, child">
+        );
+    }
+
+    paragraphThree(){
+      return(
+        <div class="center, child">
+        <h1> This is a title here</h1>
+          This is the third div
+        </div>
+      );
+
+    }
+
+    paragraphFour(){
+      return(
+        <div class="center, child">
+        <h1> This is a title here</h1>
+          This is the fourth div
+        </div>
+      );
+
+    }
+
+
+    paragraphFive(){
+      return(
+        <div class="center, child">
           <h1> This is a title here</h1>
             This is the fifth div
             <table class="center">
               <tr>
                 <th>
+                  <div>
                   Terran
+                  </div>
                 </th>
                 <th>
+                  <div>
                   Protoss
+                  </div>
                 </th>
                 <th>
+                  <div>
                   Zerg
+                  </div>
                 </th>
               </tr>
             </table>
-          </div>
+            </div>
+      );
 
+    }
 
-
-
-
+    render() {
+      const{dataIsLoaded, data} = this.state;
+      return (
+        <div class="center, main">
+          {this.paragraphOne()}  
+          {this.paragraphTwo()}
+          {this.paragraphThree()}
+          {this.paragraphFour()}
+          {this.paragraphFive()}
+          {/* {this.getProtossGuide()} */}
         </div>);
       }
 

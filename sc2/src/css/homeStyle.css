@@ -34,11 +34,38 @@ div{
     padding: 50px 50px
 }
 .child{
-    width:800px;
-    height:200px;
     background-color:white; 
     margin: auto; 
     border:10px black;
     padding: 25px 25px
 
+}
+
+.paragraph{
+    width: 800px;
+    height: 200px
+}
+
+.image_header{
+    width: 600;
+    height: 400;
+    position: relative;
+}
+
+.image_inner{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; 
+}
+
+.p1{
+    background-color:white;
+}
+
+.p1 img{
+    width:90%;
+    position: static;
+    object-fit: cover;
 }
