@@ -5,6 +5,7 @@ import headerImg from './images/SC2.jpg';
 import terranThumbnail from './images/terranlogo.png';
 import protossThumbnail from './images/protosslogo.png';
 import zergThumbnail from './images/zerglogo.png';
+import wolAudio from './01 Wings Of Liberty.mp3';
 
 class HomePage extends React.Component{
 
@@ -13,9 +14,22 @@ class HomePage extends React.Component{
     super(props);
 
     this.state = {
+      audio: new Audio(wolAudio),
+      isPlaying: false,
       data: [],
       dataIsLoaded: false
     };
+  }
+
+  playPause = () => {
+    let isPlaying = this.state.isPlaying;
+    if (isPlaying){
+      this.state.audio.pause();
+    } else {
+      this.state.audio.play();
+      this.setState({isPlaying: !isPlaying});
+    }
+
   }
 
   
@@ -53,7 +67,8 @@ class HomePage extends React.Component{
       return(
         <div class="center, child">
         <h1> This is a title here</h1>
-          This is the third div
+          This is the third div<br></br>
+          <button onClick={this.playPause}>play song</button>
         </div>
       );
 
