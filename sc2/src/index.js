@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './css/homeStyle.css';
 import headerImg from './images/SC2.jpg';
+import terranThumbnail from './images/terranlogo.png';
+import protossThumbnail from './images/protosslogo.png';
+import zergThumbnail from './images/zerglogo.png';
 
 class HomePage extends React.Component{
 
@@ -15,18 +18,15 @@ class HomePage extends React.Component{
     };
   }
 
+  
+  GuideApi(race){
 
-  getProtossGuide(){
-    fetch("https://starcraft-ii.p.rapidapi.com/learning/protoss/page/1/", options)
-      .then((res) => res.json())
-      .then((json)=> {
-        this.setState({
-          data: json,
-          dataIsLoaded: true
-          });
-          // return(`<a href= "${response.value[0].webUrl}"> Heres a helpful guide </a>`)
-        })
-      }
+    return (
+      <div class="center, child">
+       <Api/> 
+      </div>
+    )
+  }
 
     paragraphOne(){
       return (
@@ -42,6 +42,8 @@ class HomePage extends React.Component{
         return(
           <div class="center, child">
           <h1> This is a title here</h1>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/8L4kNzTNnqk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <br></br>
             This is the second div
           </div>
         );
@@ -73,23 +75,56 @@ class HomePage extends React.Component{
         <div class="center, child">
           <h1> This is a title here</h1>
             This is the fifth div
+            <div></div>
             <table class="center, mainDivider">
               <tr class="center">
                 <td>
-                  <div>
+                  <div class="thumb">
+                  <img src={terranThumbnail} alt="header image" />
+                  <br></br>
                   Terran
                   </div>
                 </td>
                 <td>
-                  <div>
+                  <div class="thumb">
+                  <img src={protossThumbnail} alt="header image" />
+                  <br></br>
                   Protoss
                   </div>
                 </td>
                 <td>
-                  <div>
+                  <div class="thumb">
+                  <img src={zergThumbnail} alt="header image" />
+                  <br></br>
                   Zerg
                   </div>
                 </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    Here is a helpful Terran guide! 
+                    {this.GuideApi()}
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    Here is a helpful Protoss guide!
+                    {this.GuideApi()}
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    Here is a helpful Zerg guide
+                    
+                    {this.GuideApi()}
+                  </div>
+                </td>
+              </tr>
+              <tr>
+              <td><a href="protoss.html">Protoss</a></td>
+              <td><a href="terran.html">Terran</a> </td>
+              <td><a href="zerg.html">Zerg</a> </td>
               </tr>
             </table>
             </div>
@@ -97,30 +132,9 @@ class HomePage extends React.Component{
 
     }
 
-    apiStuff(){
-      this.getProtossGuide()
-      const{dataIsLoaded, data} = this.state;
-      if (!dataIsLoaded) return(
-        <div class="center, child">
-            There is no data loaded
-        </div>
-      );
 
-      return(
-        <div>
-        <h1> API data fetched in react </h1>
-          {
-          data.map((item) => (
-            <ol key = {item.id} >
-              Url: {item.webUrl}
-            </ol>
-          )
-          )
-          }
-        </div>
-      );
-    }
-
+// render controller 
+//=========================================================================================
     render() {
       return (
         <div class="center, main">
@@ -129,23 +143,16 @@ class HomePage extends React.Component{
           {this.paragraphThree()}
           {this.paragraphFour()}
           {this.paragraphFive()}
-          {/* {this.apiStuff()} */}
-          <Api/>
         </div>);
-      }
-
-
-  
-  
+      }  
   }
 
-//export default HomePage;
-
+//==========================================================================================
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-<HomePage />);
+root.render(<HomePage />);
 
+/*
 const options = {
 	method: 'GET',
 	headers: {
@@ -154,20 +161,39 @@ const options = {
 	}
 };
 
-//==============================================
-
-
-function Api(){
+function Api(race){
+  const raceToGet = race;
   const[ReturnData, StoreData] = useState("");
+  console.error(raceToGet)
   useEffect(()=>{
-    fetch("https://starcraft-ii.p.rapidapi.com/learning/protoss/page/1/",options)
+    fetch(`https://starcraft-ii.p.rapidapi.com/learning/${raceToGet}/page/1/`,options)
       .then((res) => res.json())
       .then((response)=> {
-        StoreData(response.value[0].originalUrl)
+        StoreData(response.value[0])
         })
       .catch((err)=> console.error(err))
       })
-    return(<div>
-      <a href= {ReturnData}> Heres a helpful guide </a>
+    return(
+    <div>
+      <a href= {ReturnData.originalUrl}> Heres a helpful guide: {ReturnData.title} </a>
     </div>);
 }
+*/
+
+function Api(){
+const[ReturnData, StoreData] = useState("");
+useEffect(()=>{
+  fetch("https://api.kanye.rest")
+  .then(res => res.json())
+  .then(quote => {
+      StoreData(quote.quote)
+  })
+},[])
+
+return(
+  <div>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" > {ReturnData} </a>
+  </div>
+)
+}
+
