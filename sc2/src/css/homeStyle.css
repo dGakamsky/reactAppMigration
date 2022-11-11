@@ -19,8 +19,8 @@ p{
 }
 div{
     text-align: center;
-
 }
+
 .center {
     margin-left: auto;
     margin-right: auto;
@@ -68,4 +68,11 @@ div{
     width:90%;
     position: static;
     object-fit: cover;
+}
+
+.mainDivider td{
+    width:300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
 }
