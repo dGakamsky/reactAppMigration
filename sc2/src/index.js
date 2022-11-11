@@ -6,6 +6,9 @@ import terranThumbnail from './images/terranlogo.png';
 import protossThumbnail from './images/protosslogo.png';
 import zergThumbnail from './images/zerglogo.png';
 import wolAudio from './01 Wings Of Liberty.mp3';
+import { BrowserRouter, Route, Link } from "react-router-dom";
+import test from './pages/index.js';
+
 
 class HomePage extends React.Component{
 
@@ -19,6 +22,17 @@ class HomePage extends React.Component{
       data: [],
       dataIsLoaded: false
     };
+  }
+
+  router(){
+  <BrowserRouter>
+  <Routes>
+    <Route path="/" element={<Layout />}>
+      <Route index element={<Home />} />
+      <Route path="test" element={<Test />} />
+    </Route>
+  </Routes>
+  </BrowserRouter>
   }
 
   playPause = () => {
@@ -91,8 +105,7 @@ class HomePage extends React.Component{
     paragraphFive(){
       return(
         <div class="center, child">
-          <h1> This is a title here</h1>
-            This is the fifth div
+          <h1> More on the three races</h1>
             <div></div>
             <table class="center, mainDivider">
               <tr class="center">
@@ -121,26 +134,32 @@ class HomePage extends React.Component{
               <tr>
                 <td>
                   <div>
+                  <br></br>
                     Here is a helpful Terran guide! 
                     {this.GuideApi()}
                   </div>
                 </td>
                 <td>
                   <div>
+                  <br></br>
                     Here is a helpful Protoss guide!
                     {this.GuideApi()}
                   </div>
                 </td>
                 <td>
                   <div>
+                  <br></br>
                     Here is a helpful Zerg guide
-                    
                     {this.GuideApi()}
                   </div>
                 </td>
               </tr>
               <tr>
-              <td><a href="protoss.html">Protoss</a></td>
+              <td>
+                <li>
+                  <Link to ="/"> test</Link>
+                </li>
+              <a href="protoss.html">Protoss</a></td>
               <td><a href="terran.html">Terran</a> </td>
               <td><a href="zerg.html">Zerg</a> </td>
               </tr>
